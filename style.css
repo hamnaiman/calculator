@@ -1,94 +1,170 @@
-*{
+/* Resetting default styles */
+* {
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
     box-sizing: border-box;
+    overflow: hidden;
+    
 }
-h1{
-    background: black;
-    color: rgb(196, 217, 237);
+
+/* Centering the header */
+h1 {
+    background: #333;
+    color: #f1f1f1;
     display: flex; 
- padding-left: 700px;
-font-weight: 2000;
-}
-.conatiner{
-    width: 100%;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
+     padding: 6px; 
+    font-weight: 200;
+    border-bottom: 2px solid #444;
+} 
+
+/* Centering container using Flexbox */
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #0a0a0a, #2f3137);
-    /* background-image: url(cal\ gif.gif); */
+    width: 100vw; 
+    height: 100vh;
+      background: linear-gradient(45deg, #1a1a1a, #2c2c2c);  
 }
-.calculator{
-    border: 1px solid gray;
+
+/* Calculator styling */
+.calculator {
+    border: 1px solid #555;
     padding: 20px;
     border-radius: 16px;
-    background: transparent;
-    box-shadow:0px 3px 15px #3a4452;
-}
-input{
-    width: 320px;
-    border: none;
-    padding: 24px;
-    background: transparent;
-    /* box-shadow: 0px 3px 15px gray; */
-    font-size: 30px;
-    text-align: right;
-    cursor: pointer;
-    color: white;
+    background: #222;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    max-width: 400px; /* Limit maximum width */
+    width: 90%; /* Responsive width */
+    height: auto;
+    /* Ensure calculator stays centered in smaller viewports */
+    box-sizing: border-box;
 
 }
-input::placeholder{
-    color: white;
+
+/* Styling for the input */
+input {
+    width: 100%;
+    border: none;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    box-shadow: 0px 3px 15px #444; 
+    font-size: 2rem; /* Responsive font size */
+    text-align: right;
+    margin-bottom: 20px; /* Space between input and buttons */
 }
-button{
+
+/* Placeholder color */
+input::placeholder {
+    color: #aaa;
+}
+
+/* General button styling */
+button {
     border: none;
     width: 55px;
-    height: 55px;
+    height: 45px;
     margin: 10px;
-    border-radius: 50%;
-    background: transparent;
-    color: white;
-    font-size: 20px;
-    font-weight: 10px;
-    box-shadow: -8px -8px 15px rgb(21, 14, 14);
-cursor: pointer;
+    border-radius: 10px;
+    background: #444;
+    color: #fff;
+    font-size: 1.5rem; /* Responsive font size */
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
-.Equalbtn{
-    background-color: orange;
 
+/* Button hover effect */
+button:hover {
+    background-color: #555;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
 }
-.operator{
-    color: rgb(98, 244, 98);
+
+/* Equal button styling */
+.Equalbtn {
+    background-color: #ff5722;
+    color: #fff;
 }
-.btn{
+
+/* Operator button color */
+.operator {
+    color: #76c7c0;
+}
+
+/* Button styling for active state */
+.btn {
     width: 80px;
     height: 30px;
-    border: 5px solid white;
+    border: 5px solid #fff;
     border-radius: 60px;
     position: absolute;
     top: 0;
     left: 1px;
     cursor: pointer;
-
+    transition: background-color 0.3s, transform 0.3s;
 }
-.btn:before{
+
+/* Button before pseudo-element */
+.btn:before {
     content: '';
     position: absolute;
     width: 20px;
     height: 20px;
-    background: white;
+    background: #fff;
     border-radius: 50%;
     top: 50%;
     left: 5px;
     transform: translateY(-50%);
-
-
 }
-.conatinerB.active{
-    background: #0a0a0a;
+
+/* Active state styling */
+.containerB.active {
+    background: #1a1a1a;
 }
-.btn.active:before{
+
+.btn.active:before {
     left: 45px;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem; /* Adjust font size */
+    }
+    
+    input {
+        font-size: 1.5rem; /* Adjust font size */
+        padding: 15px; /* Adjust padding */
+    }
+    
+    .calculator {
+        max-width: 90%; /* Make it a bit wider on smaller screens */
+        padding: 15px; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem; /* Adjust font size */
+    }
+    
+    input {
+        font-size: 1.2rem; /* Adjust font size */
+        padding: 10px; /* Adjust padding */
+    }
+    
+    .calculator {
+        max-width: 100%; /* Full width on very small screens */
+        padding: 10px; /* Adjust padding */
+    }
 }

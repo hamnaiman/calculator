@@ -17,10 +17,8 @@ function calculate() {
    
 }
 function deleteDisplay(){
-     display.value = ""
+    document.getElementById("display").value = display.value.slice(0 ,-1)
 }
-
-
 
 
 
